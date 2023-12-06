@@ -1,20 +1,20 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  name: my-java-springboot
+  name: supply-chain-demo-app
   namespace: github-actions-demo
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: java-springboot-app
+      app: supply-chain-demo-app
   template:
     metadata:
       labels:
-        app: java-springboot-app
+        app: supply-chain-demo-app
     spec:
       containers:
-        - name: my-java-springboot
+        - name: supply-chain-demo-app
           image: quay.io/sdouglas/spring-app:${SHA}
           imagePullPolicy: Always
           ports:
@@ -38,4 +38,4 @@ spec:
       protocol: TCP
       targetPort: 8081
   selector:
-    app: java-springboot-app
+    app: supply-chain-demo-app

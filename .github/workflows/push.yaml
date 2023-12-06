@@ -24,7 +24,7 @@ jobs:
           run: |
             #!/bin/bash
             mvn clean install  -s settings.xml  -B -Dmaven.repo.local=repo
-            docker run -v `pwd`/repo:/repo -v `pwd`/target:/target quay.io/mk-ci-cd/apheleia-processor:df89a66314724604bd5be2112faea71d8bbbf0b6 /opt/jboss/container/java/run/run-java.sh analyse --maven-repo=/repo /target/demo-0.0.1-SNAPSHOT.jar --sbom-path target/sbom.json || true
+            docker run -v `pwd`/repo:/repo -v `pwd`/target:/target quay.io/mk-ci-cd/apheleia-processor:df89a66314724604bd5be2112faea71d8bbbf0b6 /opt/jboss/container/java/run/run-java.sh analyse --maven-repo=/repo /target/hacbs-test.jar --sbom-path target/sbom.json || true
             docker build . -t quay.io/sdouglas/spring-app:${{ github.sha }}
             docker push quay.io/sdouglas/spring-app:${{ github.sha }}
             export SHA=${{ github.sha }}
