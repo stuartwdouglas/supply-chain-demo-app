@@ -2,6 +2,7 @@ kind: Deployment
 apiVersion: apps/v1
 metadata:
   name: my-java-springboot
+  namespace: github-actions-demo
 spec:
   replicas: 1
   selector:
@@ -29,6 +30,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: my-java-springboot-svc
+  namespace: github-actions-demo
 spec:
   ports:
     - name: http-8081

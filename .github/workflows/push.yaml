@@ -1,4 +1,4 @@
-name: Pull Request Build
+name: Push Build
 on:
   push:
     branches: [ main ]
@@ -20,7 +20,7 @@ jobs:
           with:
             distribution: 'temurin' # See 'Supported distributions' for available options
             java-version: '17'
-      -   name: Build and export
+      -   name: Build and deploy
           run: |
             #!/bin/bash
             mvn clean install -B -Dmaven.repo.local=repo
@@ -28,9 +28,9 @@ jobs:
             docker build . -t quay.io/sdouglas/spring-app:${{ github.sha }}
             docker push quay.io/sdouglas/spring-app:${{ github.sha }}
             export SHA=${{ github.sha }}
-            echo ${{ secrets.KUBECTL }} | base64 -d >kubeconfig
-            export KUBECONFIG=kubeconfig 
-            cat deploy.yaml | envsubst >tmp.yaml
+            echo "${{ secrets.KUBECTL }}" | base64 -d >kubeconfig
+            export KUBECONFIG=kubeconfig
+            envsubst >tmp.yaml <deploy.yaml
             kubectl apply -f tmp.yaml
       -   uses: actions/upload-artifact@v3
           with:
