@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: my-java-springboot
-          image: quay.io/sdouglas/spring-boot-test:latest
+          image: quay.io/sdouglas/spring-app:${SHA}
           imagePullPolicy: Always
           ports:
             - name: http
