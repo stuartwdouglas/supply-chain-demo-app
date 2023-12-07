@@ -7,7 +7,7 @@
     <groupId>org.example</groupId>
     <artifactId>simple-java-project</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <description>Test of github actions</description>
+    <description>Test of supply chain security</description>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
