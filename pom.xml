@@ -70,6 +70,7 @@
                         <manifest>
                             <mainClass>io.github.stuartwdouglas.hacbstest.Main</mainClass>
                         </manifest>
+                        <addMavenDescriptor>false</addMavenDescriptor>
                     </archive>
                 </configuration>
             </plugin>
