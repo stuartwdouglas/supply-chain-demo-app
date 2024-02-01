@@ -18,7 +18,7 @@
             <repositories>
                 <repository>
                     <id>demo-demo_repo</id>
-                    <url>http://nexus3-nexus.apps.sdouglas.clusters.stonesoupengineering.com/repository/maven-releases/</url>
+                    <url>http://nexus3-nexus.apps.sdouglas2.clusters.stonesoupengineering.com/repository/maven-releases/</url>
                 </repository>
             </repositories>
         </profile>
