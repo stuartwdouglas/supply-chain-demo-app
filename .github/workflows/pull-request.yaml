@@ -18,8 +18,12 @@ jobs:
           run: |
             #!/bin/bash
             mvn clean install -s settings.xml -B -Dmaven.repo.local=repo
-            docker run -v `pwd`/repo:/repo -v `pwd`/target:/target quay.io/mk-ci-cd/apheleia-processor:b28d76bb3f9557daac3d88790a8bcfcea13139cd@sha256:9909955c908bdda9ac0089906d21bb0cfa558f5db3ef95ea29fc2d7b594971aa /opt/jboss/container/java/run/run-java.sh analyse --maven-repo=/repo /target/hacbs-test.jar --sbom-path /target/sbom.json || true
+            docker run -v `pwd`/repo:/repo -v `pwd`/target:/target quay.io/mk-ci-cd/apheleia-processor:0887b92f481560612f04be6a4d0723c0e915c671 /opt/jboss/container/java/run/run-java.sh analyse --maven-repo=/repo /target/hacbs-test.jar --sbom-path /target/sbom.json --build-sbom-path /target/build-sbom.json || true
       -   uses: actions/upload-artifact@v3
           with:
             name: sbom.json
             path: target/sbom.json
+      -   uses: actions/upload-artifact@v3
+          with:
+            name: build-sbom.json
+            path: target/build-sbom.json
