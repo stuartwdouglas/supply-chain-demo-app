@@ -1,5 +1,4 @@
 <settings>
-
     <mirrors>
         <mirror>
         <id>maven-default-http-blocker</id>
