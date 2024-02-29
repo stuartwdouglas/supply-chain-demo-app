@@ -1,5 +1,5 @@
 <settings>
-<!--
+
     <mirrors>
         <mirror>
         <id>maven-default-http-blocker</id>
@@ -26,5 +26,4 @@
     <activeProfiles>
         <activeProfile>demo</activeProfile>
     </activeProfiles>
--->
 </settings>
