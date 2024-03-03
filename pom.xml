@@ -37,12 +37,8 @@
             <version>2.0.9</version>
             <exclusions>
                 <exclusion>
-                    <groupId>org.osgi</groupId>
-                    <artifactId>osgi.core</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.osgi</groupId>
-                    <artifactId>osgi.cmpn</artifactId>
+                    <groupId>*</groupId>
+                    <artifactId>*</artifactId>
                 </exclusion>
             </exclusions>
         </dependency>
