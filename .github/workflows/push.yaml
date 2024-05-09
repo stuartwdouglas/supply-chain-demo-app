@@ -33,7 +33,16 @@ jobs:
           with:
             name: sbom.json
             path: target/sbom.json
+      - uses: anchore/sbom-action@v0
+        with:
+          path: ./
+          format: 'spdx-json'
+          output-file: 'sbom.spdx.json'
       - name: Attest Build Provenance
         uses: actions/attest-build-provenance@897ed5eab6ed058a474202017ada7f40bfa52940 # v1.0.0
         with:
           subject-path: "target/hacbs-test.jar"
+      - uses: actions/attest-sbom@v1
+        with:
+          subject-path: 'target/hacbs-test.jar'
+          sbom-path: 'sbom.spdx.json'
